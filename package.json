@@ -1,0 +1,23 @@
+{
+  "name": "microservices-ensemble",
+  "version": "1.0.0",
+  "description": "Orchestrating microservices for E-commerce Application",
+  "scripts": {
+    "start-all": "concurrently \"npm run start-user\" \"npm run start-product\" \"npm run start-order\" \"npm run start-payment\" \"npm run start-gateway\"",
+    "start-user": "cd user-service && npm start",
+    "start-product": "cd product-service && npm start",
+    "start-order": "cd order-service && npm start",
+    "start-payment": "cd payment-service && npm start",
+    "start-gateway": "cd api-gateway && npm start",
+    "dev-all": "concurrently \"npm run dev-user\" \"npm run dev-product\" \"npm run dev-order\" \"npm run dev-payment\" \"npm run dev-gateway\"",
+    "dev-user": "cd user-service && npm run dev",
+    "dev-product": "cd product-service && npm run dev",
+    "dev-order": "cd order-service && npm run dev",
+    "dev-payment": "cd payment-service && npm run dev",
+    "dev-gateway": "cd api-gateway && npm run dev",
+    "install-all": "npm install && cd user-service && npm install && cd ../product-service && npm install && cd ../order-service && npm install && cd ../payment-service && npm install && cd ../api-gateway && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
