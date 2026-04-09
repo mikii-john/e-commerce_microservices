@@ -57,6 +57,7 @@ const initializePayment = async (req, res) => {
 
       res.status(200).json({
         message: 'Payment initialized',
+        tx_ref,
         checkout_url: response.data.data.checkout_url,
       });
     } else {
