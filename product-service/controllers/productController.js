@@ -43,7 +43,7 @@ const getProductById = async (req, res) => {
 // @access  Private/Seller
 const createProduct = async (req, res) => {
   try {
-    const { name, price, description, image, stock } = req.body;
+    const { name, price, description, image, stock, category } = req.body;
 
     const product = new Product({
       name,
@@ -51,6 +51,7 @@ const createProduct = async (req, res) => {
       description,
       image,
       stock,
+      category,
       seller_id: req.user._id,
     });
 
@@ -81,6 +82,7 @@ const updateProduct = async (req, res) => {
       product.description = description || product.description;
       product.image = image || product.image;
       product.stock = stock ?? product.stock;
+      product.category = req.body.category || product.category;
 
       const updatedProduct = await product.save();
       res.json(updatedProduct);
